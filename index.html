@@ -32,8 +32,13 @@
             color: var(--chocolate);
         }
         
-        .font-mitr { font-family: 'Mitr', sans-serif; }
-        .font-mali { font-family: 'Mali', cursive; }
+        .font-mitr {
+            font-family: 'Mitr', sans-serif;
+        }
+
+        .font-mali {
+            font-family: 'Mali', cursive;
+        }
         
         @keyframes float-up-down {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -72,10 +77,19 @@
             box-shadow: 0 25px 60px -15px rgba(183, 128, 97, 0.12),
                         inset 0 4px 12px rgba(255, 255, 255, 1);
         }
-        .virtual-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .virtual-card:hover { transform: translateY(-4px); }
-        .virtual-card:active { transform: translateY(2px) scale(0.98); }
-        ::-webkit-scrollbar { width: 0px; }
+        .virtual-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .virtual-card:hover {
+            transform: translateY(-4px);
+        }
+        .virtual-card:active {
+            transform: translateY(2px) scale(0.98);
+        }
+        
+        ::-webkit-scrollbar {
+            width: 0px;
+        }
     </style>
     
     <script>
@@ -97,21 +111,6 @@
 </head>
 <body class="flex flex-col items-center py-6 px-4 relative overflow-x-hidden">
 
-    <!-- Pop-up ต้อนรับ สไตล์มินิมอล มินิใจ -->
-    <div id="welcome-modal" class="fixed inset-0 z-50 flex items-center justify-center p-5 bg-chocolate/10 backdrop-blur-sm transition-opacity duration-300">
-        <div class="glass-card max-w-[320px] w-full rounded-[36px] p-7 text-center space-y-5 border border-white/80 shadow-xl">
-            <div class="space-y-1.5">
-                <span class="text-[11px] font-bold tracking-widest text-chocolate/50 uppercase">welcome to</span>
-                <h3 class="text-2xl font-bold text-chocolate font-mitr tracking-tight">Jelly Shop</h3>
-                <p class="text-xs text-chocolate/70 leading-relaxed pt-1 font-mali">ยินดีต้อนรับสู่หน้าชำระเงินนะค้าบ</p>
-            </div>
-            
-            <button onclick="startApp()" class="w-full bg-white/90 hover:bg-white text-chocolate font-bold py-3 px-6 rounded-full shadow-sm hover:shadow-md active:scale-95 transition-all border border-candyPink/50 font-prompt text-sm tracking-wide">
-                เข้าสู่หน้าชำระเงิน
-            </button>
-        </div>
-    </div>
-
     <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <svg class="absolute top-[5%] left-[10%] w-8 h-8 text-chocolate/20 anim-float-1" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
         <svg class="absolute top-[15%] left-[2%] w-6 h-6 text-candyPink/40 anim-pulse" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
@@ -125,10 +124,12 @@
     </div>
 
     <!-- ปุ่มเปิด-ปิดเพลงลอยมุมขวาล่าง -->
-    <button id="music-toggle" onclick="toggleMusic(event)" class="fixed bottom-6 right-6 z-40 bg-white/90 backdrop-blur-md p-3.5 rounded-full shadow-lg border border-candyPink text-chocolate hover:scale-110 active:scale-95 transition-all flex items-center justify-center cursor-pointer">
+    <button id="music-toggle" onclick="toggleMusic(event)" class="fixed bottom-6 right-6 z-50 bg-white/90 backdrop-blur-md p-3.5 rounded-full shadow-lg border border-candyPink text-chocolate hover:scale-110 active:scale-95 transition-all flex items-center justify-center cursor-pointer">
+        <!-- ไอคอนเปิดเสียง -->
         <svg id="music-icon-on" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden anim-pulse text-chocolate" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z" />
         </svg>
+        <!-- ไอคอนปิดเสียง -->
         <svg id="music-icon-off" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-chocolate/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
             <path stroke-linecap="round" stroke-linejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
@@ -189,7 +190,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 text-chocolate">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                     </svg>
-                    บันทึกแล้วสแกนได้เลยคับ
+                    บันทึกแล้วสแกนได้เลยงับ
                 </button>
             </div>
 
@@ -198,7 +199,7 @@
                 <div class="text-center space-y-3">
                     <p class="text-[15px] font-semibold leading-relaxed text-chocolate">
                         <span class="inline-flex items-center justify-center gap-1">
-                            เลขบัญชี ด้านล่างเยยงับ
+                            เลขบัญชี ด้านล่างเยย
                             <svg class="w-4 h-4 text-chocolate anim-pulse" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
                         </span>
                         <br>ชื่อบัญชี <span class="text-chocolate font-bold bg-candyPink/50 px-2.5 py-0.5 rounded-lg border border-chocolate/20 relative inline-block">
@@ -208,7 +209,7 @@
                     </p>
                     
                     <div class="inline-flex items-center justify-center gap-1.5 text-[11px] text-chocolate font-semibold bg-[#FFFCF5] px-4 py-2.5 rounded-full border border-chocolate/30 shadow-sm whitespace-nowrap">
-                        เซฟรูปเพื่อสแกน หรือจิ้มคัดลอกเลขบัญชีได้เลยนะคับ
+                        เซฟรูปเพื่อสแกน หรือจิ้มคัดลอกเลขบัญชีได้เลยนะคะ
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-chocolate shrink-0">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" />
                         </svg>
@@ -317,24 +318,15 @@
     </div>
 
     <script>
+        // --- ส่วนควบคุมเพลง (Music Controller) ---
         const music = document.getElementById('bg-music');
         const iconOn = document.getElementById('music-icon-on');
         const iconOff = document.getElementById('music-icon-off');
 
-        function startApp() {
-            const modal = document.getElementById('welcome-modal');
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            setTimeout(() => modal.remove(), 300);
-
-            if (music.paused) {
-                music.play().then(() => updateMusicUI(true)).catch(err => console.log(err));
-            }
-        }
-
         function toggleMusic(event) {
             if (event) event.stopPropagation();
             if (music.paused) {
-                music.play().then(() => updateMusicUI(true)).catch(err => console.log(err));
+                music.play().then(() => updateMusicUI(true)).catch(err => console.log('Playback error:', err));
             } else {
                 music.pause();
                 updateMusicUI(false);
@@ -351,6 +343,27 @@
             }
         }
 
+        // เล่นเพลงอัตโนมัติ / รอการสัมผัสหน้าจอครั้งแรก
+        window.addEventListener('DOMContentLoaded', () => {
+            const playPromise = music.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    updateMusicUI(true);
+                }).catch(() => {
+                    const autoPlayOnInteraction = () => {
+                        if (music.paused) {
+                            music.play().then(() => updateMusicUI(true)).catch(() => {});
+                        }
+                        document.removeEventListener('click', autoPlayOnInteraction);
+                        document.removeEventListener('touchstart', autoPlayOnInteraction);
+                    };
+                    document.addEventListener('click', autoPlayOnInteraction, { once: true });
+                    document.addEventListener('touchstart', autoPlayOnInteraction, { once: true });
+                });
+            }
+        });
+
+        // --- ฟังก์ชันเดิมของระบบ ---
         function downloadQR() {
             const imgElement = document.getElementById('qr-image');
             if (!imgElement || !imgElement.src || imgElement.src === window.location.href) {
